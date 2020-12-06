@@ -25,7 +25,8 @@ def decode_key(key_bytes: bytearray) -> str:
             last_pos = pos_value
         windows_key.insert(0, charset[pos_value])
 
-    windows_key[last_pos] = "N"
+    windows_key.pop(0)
+    windows_key.insert(last_pos, "N")
     windows_key.insert(20, "-")
     windows_key.insert(15, "-")
     windows_key.insert(10, "-")
